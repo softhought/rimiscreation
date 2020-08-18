@@ -103,6 +103,8 @@ body{
 .note-editor{ 
   width:100% !important;
 }
+
+
 </style>
 
   <!-- jQuery -->

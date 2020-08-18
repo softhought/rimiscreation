@@ -57,6 +57,7 @@
                     <th>Price</th>
                     <th>Category</th>
                     <th>Sub Category</th>
+                    <th>Img. Count</th>
                     <th>Vendor</th>
                     <th>Brand</th>
                     <th>Description</th>
@@ -70,16 +71,17 @@
                     // pre($bodycontent['userslist']);
                     foreach ($bodycontent['productList'] as $product) { ?> 
                         <tr>
-                        <td><?php echo $product->ProductName; ?> </td>
-                        <td><?php echo $product->ProductCode; ?></td>
-                        <td><?php echo $product->Price; ?></td>
-                        <td><?php echo $product->Category; ?></td>
-                        <td><?php echo $product->SubCategory; ?></td>
-                        <td><?php echo $product->Vendor; ?></td>
-                        <td><?php echo $product->Brand; ?></td>
-                        <td><?php echo $product->Description; ?></td>
+                        <td><?php echo $product['ProductName']; ?> </td>
+                        <td><?php echo $product['ProductCode']; ?></td>
+                        <td><?php echo $product['Price']; ?></td>
+                        <td><?php echo $product['Category']; ?></td>
+                        <td><?php echo $product['SubCategory']; ?></td>
+                        <td><?php echo $product['ImgCount']; ?></td>
+                        <td><?php echo $product['Vendor']; ?></td>
+                        <td><?php echo $product['Brand']; ?></td>
+                        <td><?php echo $product['Description']; ?></td>
                         <td style="text-align: center;">
-                          <?php  if ($product->InStock=='Y') { ?>
+                          <?php  if ($product['InStock']=='Y') { ?>
                                     <img title="Customizable" src="<?php echo ASSETS_PATH; ?>img/tick.png" style="width: 23px;height: 23px;" alt="active icon">
                             <?php }else{ ?>
                                     <img src="<?php echo ASSETS_PATH; ?>img/cross.png" style="width: 23px;height: 23px;" alt="inactive icon">
@@ -87,19 +89,19 @@
                         </td>
 
                         <td style="text-align: center;">
-                            <?php  if ($product->IsActive=='Y') { ?>
-                                <!-- <a title="Active" href="<?php echo ADMIN_BASE_PATH;?>user/InactiveUser/<?php echo $product->ProductId; ?>"> -->
+                            <?php  if ($product['IsActive']=='Y') { ?>
+                                <!-- <a title="Active" href="<?php echo ADMIN_BASE_PATH;?>user/InactiveUser/<?php echo $product['ProductId']; ?>"> -->
                                     <img src="<?php echo ASSETS_PATH; ?>img/tick.png" style="width: 23px;height: 23px;" alt="active icon">
                                 <!-- </a>                                 -->
                             <?php }else{ ?>
-                                <!-- <a title="Inactive" href="<?php echo ADMIN_BASE_PATH;?>user/ActiveUser/<?php echo $product->ProductId; ?>"> -->
+                                <!-- <a title="Inactive" href="<?php echo ADMIN_BASE_PATH;?>user/ActiveUser/<?php echo $product['ProductId']; ?>"> -->
                                     <img src="<?php echo ASSETS_PATH; ?>img/cross.png" style="width: 23px;height: 23px;" alt="inactive icon">
                                 <!-- </a>  -->
                             <?php } ?>
                         </td>
 
                         <td style="text-align: center;">
-                          <a title="Edit" href="<?php echo ADMIN_BASE_PATH; ?>product/edit/<?php echo $product->ProductId; ?>" class="btn btn-sm  btn-outline-info">
+                          <a title="Edit" href="<?php echo ADMIN_BASE_PATH; ?>product/edit/<?php echo $product['ProductId']; ?>" class="btn btn-sm  btn-outline-info">
                           <i class="far fa-edit"></i></a>
                         </td>
 

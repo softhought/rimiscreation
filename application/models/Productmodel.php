@@ -264,7 +264,7 @@ class Productmodel extends CI_Model{
 
     public function getSingleProductImageOnlyByProductId($ProductId)
     {
-        $data = "";
+        $data = array();
         $where=[
             'ProductId'=>$ProductId,
             'IsActive'=>'Y',
@@ -295,7 +295,7 @@ class Productmodel extends CI_Model{
 
     public function getSingleProductAllImageProductId($ProductId)
     {
-        $data = "";
+        $data = array();
         $where=[
             'ProductId'=>$ProductId,
             'IsActive'=>'Y',
@@ -751,7 +751,7 @@ class Productmodel extends CI_Model{
                 product_master  
                 INNER JOIN category_master 
                 ON product_master.CategoryId =category_master.CategoryId 
-                AND product_master.IsActive = 'Y' 
+                AND category_master.IsActive = 'Y' 
                 INNER JOIN sub_category ON product_master.SubCategoryId = sub_category.SubCategoryId    
                 LEFT JOIN product_detail 
                 ON product_master.ProductId = product_detail.ProductId 
@@ -761,7 +761,7 @@ class Productmodel extends CI_Model{
                 LEFT JOIN vendor_master 
                 ON product_master.VendorId = vendor_master.`VendorId` 
                 AND vendor_master.IsActive = 'Y' 
-            WHERE product_master.`SubCategoryId` = $SubCatagoryId ";
+            WHERE product_master.IsActive = 'Y'  and  product_master.`SubCategoryId` = $SubCatagoryId ";
 
         $query=$this->db->query($sql);
         // echo $this->db->last_query();

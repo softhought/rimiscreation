@@ -32,7 +32,20 @@ class Productmodel extends CI_Model {
         {
             foreach ($query->result() as $rows)
             {
-                $data[] = $rows;
+                $data[] = [
+                    'ProductId'=>$rows->ProductId,
+                    'ProductName'=>$rows->ProductName,
+                    'Description'=>$rows->Description,
+                    'IsActive'=>$rows->IsActive,
+                    'Price'=>$rows->Price,
+                    'ProductCode'=>$rows->ProductCode,
+                    'InStock'=>$rows->InStock,
+                    'Category'=>$rows->Category,
+                    'SubCategory'=>$rows->SubCategory,
+                    'Vendor'=>$rows->Vendor,
+                    'Brand'=>$rows->Brand,
+                    'ImgCount'=>$this->getActiveProductImageCountByProductId($rows->ProductId)
+                ];
             }
             return $data;
              
@@ -146,6 +159,25 @@ class Productmodel extends CI_Model {
               return $data;
           }
     }
+
+    public function getActiveProductImageCountByProductId($ProductId)
+    {
+       
+        $where=[
+            'ProductId'=>$ProductId,
+            'IsActive'=>'Y',
+            'MediaType'=>'IMG'
+        ];
+		$this->db->select("*")
+				->from('product_media')
+                ->where($where);
+		$query = $this->db->get();
+		
+		// echo "<br>".$this->db->last_query();
+		
+        return $totalCount = $query->num_rows();
+    }
+
 
 
 }// end of class

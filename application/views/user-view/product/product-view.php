@@ -30,7 +30,7 @@
 						</div>
 					</div>
 
-					<div class="simpleLens-thumbnails-container">
+					<div class="simpleLens-thumbnails-container margin-5">
 						<?php foreach ($bodycontent['ProductData']['AllImg'] as $Img) {?>
 							
 							<a href="javascript:void(0);" class="simpleLens-thumbnail-wrapper"

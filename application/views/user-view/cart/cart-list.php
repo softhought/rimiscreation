@@ -10,16 +10,19 @@
       </div>
     </div>
 
-    <section class="ftco-section ftco-cart">
-			<div class="container">
-				<div class="row">
-    			<div class="col-md-12 ftco-animate">
-    				<div class="cart-list">
+    
+	<section class="ftco-section">
+      <div class="container-fluid d-flex">
+      	<div class="col-md-8">
+        <div class="row justify-content-center">
+
+		<div class="col-xl-12 ftco-animate fadeInUp ftco-animated">
+    				<div class="">
 	    				<table class="table">
 						    <thead class="thead-primary">
 						      <tr class="text-center">
-						        <th>Image</th>						        
-						        <th>Product</th>
+						        <!-- <th>Image</th>						         -->
+						        <th colspan="2">Product</th>
 						        <th>Price</th>
 						        <th>Quantity</th>
 						        <th>Total</th>
@@ -44,25 +47,23 @@
 						        
 						        <td class="product-name">
 						        	<h3><?php echo $item['ProductName']; ?></h3>
-						        	<p><?php echo $item['Description']; ?></p>
+						        	<!-- <p><?php echo $item['Description']; ?></p> -->
 						        </td>
 						        
 						        <td class="price"><?php echo $item['Price']; ?></td>
 						        
 						        <td class="">
 
-						        	<!-- <div class="input-group mb-3">
-					             	    <input type="text" name="quantity" class="quantity form-control input-number" value="<?php echo $item['CartCount']; ?>" min="1" max="100">
-					          	    </div> -->
+						        	
 
 									  <p>
-										<a data-text="<?php echo $item['ProductId']; ?>" href="javascript:void(0);" class="removecart_frm_cart btn btn-black quantity-left-minus px-4 py-3 " style="">
+										<a data-text="<?php echo $item['ProductId']; ?>" href="javascript:void(0);" class="removecart_frm_cart btn btn-black quantity-left-minus " style="">
 											<span><i class="fas fas fa-minus ml-1"></i></span>
 										</a>
 										<a href="javascript:void(0);" class="add-to-cart text-center vertical-align-middle">
-											<input readonly id="count_<?php echo $item['ProductId']; ?>" type="text" class="cart-count input-number" value="<?php echo $item['CartCount']; ?>" style="height: 50px;text-align: center;">
+											<input readonly id="count_<?php echo $item['ProductId']; ?>" type="text" class="cart-count input-number" value="<?php echo $item['CartCount']; ?>" style="height: 34px;width: 74px;border-radius: .25rem;text-align: center;">
 										</a>
-										<a data-text="<?php echo $item['ProductId']; ?>" href="javascript:void(0);" class="addcart_frm_cart  btn btn-black quantity-left-minus px-4 py-3 ">
+										<a data-text="<?php echo $item['ProductId']; ?>" href="javascript:void(0);" class="addcart_frm_cart  btn btn-black quantity-left-minus ">
 											<span><i class="fas fas fa-plus ml-1"></i></span>
 										</a>
 									</p>
@@ -84,9 +85,13 @@
 						  </table>
 					  </div>
     			</div>
-    		</div>
-    		<div class="row justify-content-center">
-    			<div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
+         
+		 
+        </div> <!-- .col-md-8 -->
+        </div>
+        <div class="col-md-4">
+        	<div class="row pt-3 justify-content-center">
+    			<div class="col-md-9 ftco-animate fadeInUp ftco-animated">
     				<div class="cart-total mb-3">
     					<h3>Cart Totals</h3>
     					<p class="d-flex">
@@ -110,5 +115,7 @@
     				<p class="text-center"><a href="<?php echo base_url(); ?>cart/checkout" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
     			</div>
     		</div>
-			</div>
-		</section>
+
+
+      </div>
+    </section>

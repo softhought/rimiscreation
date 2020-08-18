@@ -17,7 +17,7 @@
       	<div class="col-md-8">
         <div class="row justify-content-center">
           <div class="col-xl-8 ftco-animate fadeInUp ftco-animated">
-						<form action="http://demo.hostdaddy.net.in/rimi/checkout.php#" class="billing-form">
+						<form action="#" class="billing-form">
 							<h3 class="mb-4 billing-heading">Billing Details</h3>
 	          	<div class="row align-items-end">
 	          		<div class="col-md-6">
