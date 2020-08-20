@@ -30,8 +30,10 @@
 						      </tr>
 						    </thead>
 						    <tbody>					     
-                                <?php 
-                                 $SubTotal=0;
+								<?php 
+								$SubTotal=0;
+								if(sizeof($bodycontent['CartItemList'])>0){
+                                 
                                  foreach ($bodycontent['CartItemList'] as $item) {
                                     $SubTotal+=$item['CartTotalPrice'];
                                 ?>
@@ -79,7 +81,13 @@
 
 						      </tr><!-- END TR-->
 
-                              <?php } ?>
+                              <?php } } else{ ?>
+							  	<tr style="background-image:url(<?php echo SITE_ASSETS_PATH; ?>img/empty-cart.png);">
+									<td style="width: 100%;height: 475px;" colspan="6"  >
+										
+									</td>
+								</tr>
+								<?php }?>
 
 						    </tbody>
 						  </table>
@@ -90,7 +98,7 @@
         </div> <!-- .col-md-8 -->
         </div>
         <div class="col-md-4">
-        	<div class="row pt-3 justify-content-center">
+        	<div class="row pt-3 mt-5 justify-content-center">
     			<div class="col-md-9 ftco-animate fadeInUp ftco-animated">
     				<div class="cart-total mb-3">
     					<h3>Cart Totals</h3>
