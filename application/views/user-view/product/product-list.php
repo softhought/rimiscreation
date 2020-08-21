@@ -81,7 +81,7 @@
                                           ?>
                                               <p class="bottom-area d-flex px-3">
                                                 <a href="javascript:void(0);" data-text="<?php echo $product['ProductId']; ?>" class="add-to-cart AddCart text-center py-2 mr-1"><span>Add to cart <i class="fas fas fa-plus ml-1"></i></span></a>
-                                                <a href="<?php echo base_url(); ?>cart/checkout" data-text="<?php echo $product['ProductId']; ?>" class="buy-now BuyNow text-center py-2">Buy now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                                                <a href="<?php echo base_url(); ?>checkout" data-text="<?php echo $product['ProductId']; ?>" class="buy-now BuyNow text-center py-2">Buy now<span><i class="ion-ios-cart ml-1"></i></span></a>
                                               </p>
 
 

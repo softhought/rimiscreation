@@ -14,8 +14,11 @@ class Signin extends CI_Controller {
     public function index(){     
         $session="";
         $header="";
-        $result=[];
-        
+        $result['redirectPath']="";
+        $redirectPath = $this->input->post('redirectPath');
+        if (isset($redirectPath)) {
+            $result['redirectPath']=$redirectPath;
+        }
 
         // pre($result['ProductSideList']);exit;
         $page="user-view/registration/signin";
@@ -57,6 +60,7 @@ class Signin extends CI_Controller {
             $user_session = [
                                 "userid"=>$result->user_id,
                                 "username"=>$result->display_name,
+                                "useremail"=>$result->email,
                     
                             ];
                             

@@ -26,9 +26,10 @@ $(document).ready(function () {
                 dataType: 'json',
                 contentType: "application/x-www-form-urlencoded; charset=UTF-8",
                 success: function(result) {
-					if (result.msg_status == 1) {
-							
-                 	  window.location.href = basepath + 'home';
+                    var redirectPath=$('#redirectPath').val();
+					if (result.msg_status == 1) {							
+                 	  
+                            window.location.href = basepath + 'home';
 
                     } 
 					else {
@@ -60,7 +61,7 @@ $(document).ready(function () {
 
   		$(document).on('submit','#signinForm',function(e){
 		e.preventDefault();
-		
+		// alert($('#redirectPath').val());return false;
 		$("#error_msg").text("")
 		if(loginRequired())
 		{
@@ -77,9 +78,15 @@ $(document).ready(function () {
 				data: {formDatas:formData},
 				success: function (result) 
 				{
+                    var redirectPath=$('#redirectPath').val();
 					if(result.msg_status == 1)
 					{
-						window.location=basepath + 'home';
+						if(redirectPath!="")
+                        {
+                            window.location.href = redirectPath;
+                        }else{
+                            window.location.href = basepath + 'home';
+                        }
 					}
 					else
 					{

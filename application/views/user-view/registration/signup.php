@@ -14,7 +14,7 @@
               <?php 
               $attr = array("id"=>"signupForm","name"=>"signupForm");
               echo form_open('',$attr); ?>
-
+            <input type="hidden" id="redirectPath" value="<?php echo $bodycontent['redirectPath']; ?>">
     <section class="ftco-section">
       <div class="container">
         <div class="row justify-content-center">

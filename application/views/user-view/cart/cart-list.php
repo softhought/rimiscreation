@@ -10,7 +10,8 @@
       </div>
     </div>
 
-    
+   <?php $SubTotal=0;
+    if(sizeof($bodycontent['CartItemList'])>0){ ?>
 	<section class="ftco-section">
       <div class="container-fluid d-flex">
       	<div class="col-md-8">
@@ -31,9 +32,7 @@
 						    </thead>
 						    <tbody>					     
 								<?php 
-								$SubTotal=0;
-								if(sizeof($bodycontent['CartItemList'])>0){
-                                 
+								
                                  foreach ($bodycontent['CartItemList'] as $item) {
                                     $SubTotal+=$item['CartTotalPrice'];
                                 ?>
@@ -81,13 +80,7 @@
 
 						      </tr><!-- END TR-->
 
-                              <?php } } else{ ?>
-							  	<tr style="background-image:url(<?php echo SITE_ASSETS_PATH; ?>img/empty-cart.png);">
-									<td style="width: 100%;height: 475px;" colspan="6"  >
-										
-									</td>
-								</tr>
-								<?php }?>
+                              <?php } ?>
 
 						    </tbody>
 						  </table>
@@ -127,3 +120,9 @@
 
       </div>
     </section>
+
+	<?php } else{ ?>
+		 <section  style="">
+			<div style="background-position: center;background-repeat: no-repeat;width: 100%;height: 475px;background-image:url(<?php echo SITE_ASSETS_PATH; ?>img/empty-cart.png);"> </div>
+		 </section>				
+	<?php }?>

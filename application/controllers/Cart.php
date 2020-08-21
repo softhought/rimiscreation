@@ -29,14 +29,101 @@ class Cart extends CI_Controller {
         createbody_method($result, $page, $header, $session);
     }
 
-    public function checkout(){     
-        $session="";
-        $result="";
-        $header="";
-        $page="user-view/cart/checkout";
-        createbody_method($result, $page, $header, $session);
+    // public function checkout(){     
+    //     $session="";
+    //     $result="";
+    //     $header="";
+    //     $page="user-view/cart/checkout";
+    //     createbody_method($result, $page, $header, $session);
 
 
+    // }
+    // public function checkout2(){     
+    //     $session="";
+    //     $result="";
+    //     $header="";
+    //     $page="user-view/cart/checkout copy";
+    //     createbody_method($result, $page, $header, $session);
+
+
+    // }
+
+    public function BuyNow() // need to impliment  
+    {
+
+        //    $this->session->unset_userdata('cart_product');
+        $session=$this->session->userdata('cart_product');
+        $product=$this->input->post('ProductId');
+        $user=array();
+        $TotalCartAmount=0;  
+        
+        if(sizeof($session)>0)
+        {
+            
+            if ($this->CheckIfIdInArray($product, $session)) {
+                for ($i=0; $i < sizeof($session) ; $i++) { 
+
+                    if ($session[$i]['product']==$product) {
+                        $user[$i]=[
+                            "product"=>$session[$i]['product'],
+                            "count"=>$session[$i]['count']+1,
+                            "price"=>$this->product->getProductTotalPriceProductId($product)
+                        ];    
+                    }
+                }
+                $user=array_replace($session,$user);
+                // echo 'hello';
+                // pre($user);
+                // exit;
+            } else{
+                $user[sizeof($session)] =array(
+                    "product"=>$product,
+                    "count"=>1,
+                    "price"=>$this->product->getProductTotalPriceProductId($product)
+        
+                );
+                $user=array_merge($session,$user);
+                // $this->session->unset_userdata('cart_data');
+                // echo 'hi';
+                // pre($user);
+                // exit;
+            }
+                        
+
+        }else{
+            $user[] =array(
+                "product"=>$product,
+                "count"=>1,
+                "price"=>$this->product->getProductTotalPriceProductId($product)
+    
+            );            
+        }
+
+        
+        $this->session->set_userdata("cart_product", array_values($user));
+        $session=$this->session->userdata('cart_product');
+
+        // pre($user);
+        // exit;  
+        foreach ($session as $Product) {
+            $price=0;
+            for ($i=0; $i <$Product['count'] ; $i++) { 
+                $price+=$Product['price'];
+            }
+            $TotalCartAmount+=$price;
+        }
+        
+        
+        $cart_amt_count=array(
+            "CartCount" => sizeof($session),
+            "TotalCartAmount" => $TotalCartAmount
+        );
+        $this->session->set_userdata("cart_amt_count", $cart_amt_count);
+
+        $json_response = $cart_amt_count;
+        header('Content-Type: application/json');
+        echo json_encode( $json_response );
+        exit;
     }
 
 
@@ -93,7 +180,7 @@ class Cart extends CI_Controller {
         }
 
         
-        $this->session->set_userdata("cart_product", $user);
+        $this->session->set_userdata("cart_product", array_values($user));
         $session=$this->session->userdata('cart_product');
 
         // pre($user);
@@ -157,7 +244,7 @@ class Cart extends CI_Controller {
                
 
         
-        $this->session->set_userdata("cart_product", $user);
+        $this->session->set_userdata("cart_product", array_values($user));
         $session=$this->session->userdata('cart_product');
 
         // pre($session);

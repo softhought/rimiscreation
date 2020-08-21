@@ -15,7 +15,11 @@ class Registration extends CI_Controller {
         $session="";
         $header="";
         $result=[];
-        
+        $result['redirectPath']="";
+        $redirectPath = $this->input->post('redirectPath');
+        if (isset($redirectPath)) {
+            $result['redirectPath']=$redirectPath;
+        }
 
         // pre($result['ProductSideList']);exit;
         $page="user-view/registration/signup";

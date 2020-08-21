@@ -5,6 +5,7 @@
     <title>Rimi's Creations</title>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo ASSETS_PATH; ?>fav.png">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
@@ -13,8 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Aclonica&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="<?php echo SITE_ASSETS_PATH; ?>css/animate.css">
+
     <!-- Bootstrap core CSS -->
-    <link href="<?php echo SITE_ASSETS_PATH; ?>css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="<?php echo SITE_ASSETS_PATH; ?>css/bootstrap.min.css" rel="stylesheet"> -->
+
     <!-- Material Design Bootstrap -->
     <!-- <link href="css/mdb.min.css" rel="stylesheet"> -->
     <!-- Your custom styles (optional) -->
@@ -28,18 +31,20 @@
     <!-- Simple-Image-Gallery-with-Magnifying-Glass-Effect  -->
     <link rel="stylesheet" type="text/css" href="<?php echo ASSETS_PATH; ?>Simple-Image-Gallery/css/jquery.simpleLens.css">
     <link rel="stylesheet" type="text/css" href="<?php echo ASSETS_PATH; ?>Simple-Image-Gallery/css/jquery.simpleGallery.css">
-    
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
 
     <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" type="text/css" href="<?php echo ASSETS_PATH; ?>slick-1.8.1/slick.css"/>
     <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" type="text/css" href="<?php echo ASSETS_PATH; ?>slick-1.8.1/slick-theme.css"/>
 
-
     <!-- JQuery -->
     <script src="<?php echo SITE_ASSETS_PATH; ?>js/jquery.min.js"></script>
 
-
+    
     <style>
     .plus-minus-btn-center{
         display: flex;
@@ -58,6 +63,13 @@
 
     .slick-slide{
         height: auto !important;
+    }
+
+    .state-disabled{
+        opacity: 0.70 !important;
+    }
+    .text-uppercase{
+        text-transform:uppercase;
     }
 
     </style>
@@ -396,7 +408,7 @@
 <!-- Bootstrap tooltips -->
 <script type="text/javascript" src="<?php echo SITE_ASSETS_PATH; ?>js/popper.min.js"></script>
 <!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="<?php echo SITE_ASSETS_PATH; ?>js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="<?php echo SITE_ASSETS_PATH; ?>js/bootstrap.min.js"></script> -->
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="<?php echo SITE_ASSETS_PATH; ?>js/mdb.min.js"></script>
 <script src="<?php echo SITE_ASSETS_PATH; ?>js/aos.js"></script>
@@ -404,6 +416,10 @@
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script> -->
 <script type="text/javascript" src="<?php echo ASSETS_PATH; ?>slick-1.8.1/slick.min.js"></script>
 
+<!--  Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
 <!-- sweetalert2 -->
 <script src="<?php echo ASSETS_PATH; ?>plugins/sweetalert2/sweetalert2.js"></script>
@@ -420,7 +436,7 @@
         // dots: true,
         infinite: false,
         slidesToShow: 4,
-        slidesToScroll: 1,
+        slidesToScroll: 4,
         pauseOnHover: true,
         // lazyLoad: 'ondemand',    
         autoplay: true,

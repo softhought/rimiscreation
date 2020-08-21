@@ -14,18 +14,20 @@
       <?php 
               $attr = array("id"=>"signinForm","name"=>"signinForm");
               echo form_open('',$attr); ?>
+              <input type="hidden" id="redirectPath" value="<?php echo $bodycontent['redirectPath']; ?>">
     <section class="ftco-section">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-xl-8 ftco-animate">
 							<div id="logreg-forms">
         <form class="form-signin">
+        
             <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
-            <div class="social-login">
+            <!-- <div class="social-login">
                 <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign in with Facebook</span> </button>
                 <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
             </div>
-            <p style="text-align:center"> OR  </p>
+            <p style="text-align:center"> OR  </p> -->
             <div class="form-group">
 	                	
 	                  <input type="email" id="email" name="email" class="form-control" placeholder="Email address"  autofocus="">
@@ -39,7 +41,7 @@
             
              <p id="error_msg"></p>
             <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>
-            <a href="#" id="forgot_pswd">Forgot password?</a>
+            <!-- <a href="#" id="forgot_pswd">Forgot password?</a> -->
             <hr>
             <!-- <p>Don't have an account!</p>  --> 
             <a href="<?php echo base_url();?>registration" >
@@ -47,11 +49,11 @@
           </a>
       </form>
 
-            <form action="/reset/password/" class="form-reset">
+            <!-- <form action="/reset/password/" class="form-reset">
                 <input type="email" id="resetEmail" class="form-control" placeholder="Email address" required="" autofocus="">
                 <button class="btn btn-primary btn-block" type="submit">Reset Password</button>
                 <a href="#" id="cancel_reset"><i class="fas fa-angle-left"></i> Back</a>
-            </form>
+            </form> -->
             
            
             

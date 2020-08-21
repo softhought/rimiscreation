@@ -135,7 +135,7 @@
 
                         <p>
 							<a href="javascript:void(0);" data-text="<?php echo $bodycontent['ProductData']['ProductId']; ?>" class="btn btn-black py-3 AddCart_frm_view px-5">Add to Cart</a>
-							<a href="<?php echo base_url(); ?>cart/checkout" class="btn btn-black py-3 px-5">Buy now</a>
+							<a href="<?php echo base_url(); ?>checkout" class="btn btn-black py-3 px-5">Buy now</a>
 						</p>
 
 					<?php } ?>
